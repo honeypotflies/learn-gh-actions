@@ -23,7 +23,7 @@ jobs:
         uses: hashicorp/vault-action@v2.4.3
         with:
           url: https://e808-2601-645-8100-cc60-2cc3-6d99-61c7-b490.ngrok.io
-          role: myproject-production
+          role: gha-jwt-demo
           method: jwt
           path: jwt
           secrets: |
