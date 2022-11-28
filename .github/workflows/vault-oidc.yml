@@ -1,0 +1,34 @@
+name: build
+on:
+  push:
+    branches: 
+      - '**'
+  pull_request:
+    branches: [ $default-branch ]
+  workflow_call:
+jobs:
+  build:
+    name: Pull from Vault
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Pull Keys from Vault
+        uses: hashicorp/vault-action@v2.4.3
+        with:
+          url: https://e808-2601-645-8100-cc60-2cc3-6d99-61c7-b490.ngrok.io
+          role: myproject-production
+          method: jwt
+          path: jwt
+          secrets: |
+              secret/production test | testval ;
+
+      - name: Test
+        run: |
+          echo ${{ env.testval }}
