@@ -27,8 +27,8 @@ jobs:
           method: jwt
           path: jwt
           secrets: |
-              secret/data/production test | testval
+              /auth/token/lookup-self display_name | NAMEY
 
       - name: Test
         run: |
-          echo ${{ env.testval }}
+          echo ${{ env.NAMEY }}
