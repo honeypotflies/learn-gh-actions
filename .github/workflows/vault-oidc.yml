@@ -31,4 +31,4 @@ jobs:
 
       - name: Test
         run: |
-          echo ${{ env.NAME }}
+          echo ${{ env.testval }}
