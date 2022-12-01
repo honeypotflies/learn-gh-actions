@@ -21,7 +21,7 @@ jobs:
           role: myproject-production
           path: github-jwt
           secrets: |
-            secret/data/production test | testval
+            secret/production test | testval
 
       - name: Test
         run: |
