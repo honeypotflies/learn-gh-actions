@@ -20,8 +20,7 @@ jobs:
           url: https://aae2-2601-645-8100-cc60-847b-3b74-17d4-b10f.ngrok.io
           role: myproject-production
           path: github-jwt
-          secrets: |
-            production test | testval
+          secrets: secret/production test | testval
 
       - name: Test
         run: |
