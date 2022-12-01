@@ -15,13 +15,13 @@ jobs:
     steps:
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
-          with:
-            method: jwt
-            url: https://e808-2601-645-8100-cc60-2cc3-6d99-61c7-b490.ngrok.io
-            role: myproject-production
-            path: github-jwt
-            secrets: |
-              secret/data/production test | testval
+        with:
+          method: jwt
+          url: https://e808-2601-645-8100-cc60-2cc3-6d99-61c7-b490.ngrok.io
+          role: myproject-production
+          path: github-jwt
+          secrets: |
+            secret/data/production test | testval
 
       - name: Test
         run: |
